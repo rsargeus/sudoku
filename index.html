@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Sudoku</h1>
+      <div id="timer">00:00</div>
+    </header>
+
+    <div id="toolbar">
+      <select id="difficulty-select">
+        <option value="beginner">Nybörjare</option>
+        <option value="easy" selected>Lätt</option>
+        <option value="medium">Medel</option>
+        <option value="hard">Svår</option>
+        <option value="expert">Expert</option>
+      </select>
+      <button id="btn-new">Nytt spel</button>
+      <button id="btn-giveup">Ge upp</button>
+    </div>
+
+    <div id="board"></div>
+
+    <div id="numpad">
+      <button class="num-btn" data-num="1">1</button>
+      <button class="num-btn" data-num="2">2</button>
+      <button class="num-btn" data-num="3">3</button>
+      <button class="num-btn" data-num="4">4</button>
+      <button class="num-btn" data-num="5">5</button>
+      <button class="num-btn" data-num="6">6</button>
+      <button class="num-btn" data-num="7">7</button>
+      <button class="num-btn" data-num="8">8</button>
+      <button class="num-btn" data-num="9">9</button>
+    </div>
+
+    <div id="action-bar">
+      <button id="btn-erase">Radera</button>
+      <button id="btn-notes">Anteckningar</button>
+      <button id="btn-errors" class="active">Fel: På</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
