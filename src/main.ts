@@ -29,6 +29,7 @@ function init() {
   function render() {
     renderBoard(state, board, render)
     highlightSameNumber()
+    updateNumpad()
 
     if (!state.completed && checkCompletion(state)) {
       state.completed = true
@@ -52,6 +53,19 @@ function init() {
   render()
 }
 
+function updateNumpad() {
+  const counts = new Array(10).fill(0)
+  for (let r = 0; r < 9; r++)
+    for (let c = 0; c < 9; c++) {
+      const v = state.cells[r][c].value
+      if (v !== null) counts[v]++
+    }
+  document.querySelectorAll<HTMLButtonElement>('.num-btn').forEach(btn => {
+    const n = parseInt(btn.dataset.num!)
+    btn.classList.toggle('exhausted', counts[n] >= 9)
+  })
+}
+
 function highlightSameNumber() {
   if (!state.selected) return
   const [sr, sc] = state.selected
@@ -62,6 +76,14 @@ function highlightSameNumber() {
     const c = parseInt(cell.dataset.col!)
     cell.classList.toggle('same-number', selVal !== null && state.cells[r][c].value === selVal)
   })
+}
+
+// Deploy time
+declare const __BUILD_TIME__: string
+const deployEl = document.getElementById('deploy-info')
+if (deployEl) {
+  const d = new Date(__BUILD_TIME__)
+  deployEl.textContent = `Senaste deploy: ${d.toLocaleString('sv-SE', { dateStyle: 'short', timeStyle: 'short' })}`
 }
 
 // Bootstrap
