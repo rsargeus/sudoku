@@ -18,6 +18,7 @@ export interface GameState {
   elapsed: number
   completed: boolean
   showErrors: boolean
+  showSolution: boolean
 }
 
 const STORAGE_KEY = 'sudoku_save'
@@ -44,6 +45,7 @@ export function createState(difficulty: Difficulty, puzzle: Board, solution: Boa
     elapsed: 0,
     completed: false,
     showErrors: true,
+    showSolution: false,
   }
 }
 

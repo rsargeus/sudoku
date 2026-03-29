@@ -184,6 +184,20 @@ h1 {
 #action-bar button:hover { background: #f0f0f0; }
 #action-bar button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+/* Solution hint */
+.solution-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #16a34a;
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  font-weight: 600;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
 /* Mobile touch improvements */
 @media (hover: none) {
   .cell { -webkit-tap-highlight-color: transparent; }

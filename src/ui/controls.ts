@@ -25,6 +25,14 @@ export function setupControls(
     noteBtn.classList.toggle('active', state.noteMode)
   })
 
+  // Solution toggle
+  const solBtn = document.getElementById('btn-solution')!
+  solBtn?.addEventListener('click', () => {
+    state.showSolution = !state.showSolution
+    solBtn.classList.toggle('active', state.showSolution)
+    onInput()
+  })
+
   // Error toggle
   const errBtn = document.getElementById('btn-errors')!
   errBtn?.addEventListener('click', () => {

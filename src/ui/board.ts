@@ -19,6 +19,13 @@ export function renderBoard(state: GameState, container: HTMLElement, onChange: 
         cell.appendChild(renderNotes(cs.notes))
       }
 
+      if (state.showSolution && cs.value !== state.solution[r][c]) {
+        const hint = document.createElement('span')
+        hint.className = 'solution-hint'
+        hint.textContent = String(state.solution[r][c])
+        cell.appendChild(hint)
+      }
+
       cell.addEventListener('click', () => {
         state.selected = [r, c]
         onChange()
