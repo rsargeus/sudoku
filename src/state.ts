@@ -74,6 +74,8 @@ export function loadState(): GameState | null {
       }))
     )
     parsed.selected = null
+    parsed.showErrors ??= true
+    parsed.showSolution ??= false
     return parsed as GameState
   } catch {
     return null

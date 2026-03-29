@@ -20,6 +20,7 @@ export function setupControls(
 
   // Note toggle
   const noteBtn = document.getElementById('btn-notes')!
+  noteBtn.classList.toggle('active', state.noteMode)
   noteBtn?.addEventListener('click', () => {
     state.noteMode = !state.noteMode
     noteBtn.classList.toggle('active', state.noteMode)
@@ -27,6 +28,7 @@ export function setupControls(
 
   // Solution toggle
   const solBtn = document.getElementById('btn-solution')!
+  solBtn.classList.toggle('active', state.showSolution)
   solBtn?.addEventListener('click', () => {
     state.showSolution = !state.showSolution
     solBtn.classList.toggle('active', state.showSolution)
@@ -35,6 +37,8 @@ export function setupControls(
 
   // Error toggle
   const errBtn = document.getElementById('btn-errors')!
+  errBtn.classList.toggle('active', state.showErrors)
+  errBtn.textContent = state.showErrors ? 'Fel: På' : 'Fel: Av'
   errBtn?.addEventListener('click', () => {
     state.showErrors = !state.showErrors
     errBtn.classList.toggle('active', state.showErrors)
